@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="60dp">
+
+    <ImageView
+        android:id="@+id/idPic"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:src="@drawable/add"
+        android:layout_marginTop="16dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/idPic"
+        android:text="Title"
+        android:textSize="28sp"
+        android:textColor="#000"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/idPic" />
+    <TextView
+        android:id="@+id/idDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="Make sure that you are awesome"
+        android:textSize="18sp"
+        android:layout_toEndOf="@+id/idPic"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/idPic" />
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Alew Eny</string>
+    <string name="infoFindYourPhone">Here you will be able to send the secret code you have saved in your lost phone then wait for a message to bes sent back to this phone</string>
+    <string name="infoEnterPhone">Here you have the ability to recovery phone number your gone send with when your phone is lost</string>
+    <string name="title_activity_show_data">ShowData</string>
+    <string name="title_activity_settings">SettingsAct</string>
+</resources>
