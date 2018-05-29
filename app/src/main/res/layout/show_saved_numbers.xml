@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.ShowSavedNumbers"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/savedNumberLayout">
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
             android:text="Row id"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:id="@+id/rowFind"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +36,8 @@
             android:gravity="center"
             android:text="Phone Number"
             android:textColor="@android:color/black"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:id="@+id/phoneFind"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +46,8 @@
             android:text="Security Code"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:id="@+id/seqFind"/>
 
     </LinearLayout>
     <ListView

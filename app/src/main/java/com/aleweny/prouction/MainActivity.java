@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -16,23 +17,29 @@ import android.support.v7.app.AppCompatDelegate;
 import android.telephony.SmsMessage;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aleweny.prouction.View.EnterPhoneClass;
 import com.aleweny.prouction.View.FindPhone;
 import com.aleweny.prouction.View.ListViewAdapter;
+import com.aleweny.prouction.View.SettingsAct;
 import com.aleweny.prouction.View.ShowSavedNumbers;
 import com.aleweny.prouction.controller.Controller;
 
 import java.util.ArrayList;
 
 import static com.aleweny.prouction.R.layout.activity_main;
+import static com.aleweny.prouction.R.layout.findphonelayout;
 
 //TODO If there is a change in SIM Card Find out
 public class MainActivity extends AppCompatActivity {
     String[] title = {"Add A Number", "Find Your phone", "Show Data", "Settings", "Developer"};
     int[] images = {R.drawable.add, R.drawable.lightbulb, R.drawable.questionmark, R.drawable.settings, R.drawable.person};
+    int[] imagesForDark ={R.drawable.addwhiteback, R.drawable.bulbwhilte, R.drawable.savedatawhite, R.drawable.settingswhite, R.drawable.personwhite};
 //    int[] background = {R.drawable.cerclebackgroundgreen, R.drawable.cerclebackgroundpink, R.drawable.cerclebackgroundpurple, R.drawable.cerclebackgroundbule};
     String[] desc = {
             "Add a phone number so that it can be save",
@@ -48,11 +55,31 @@ public class MainActivity extends AppCompatActivity {
     public BroadcastReceiver simCardChangeReciver;
     Controller controller;
 
+    SharedPreferences sharedPreferences;
+    boolean backBoolean;
+
+    LinearLayout lin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_main);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+
+        lin = findViewById(R.id.MainActivityBack);
+
+        sharedPreferences = getSharedPreferences("Settings",0);
+
+        backBoolean = sharedPreferences.getBoolean("switchOne",true);
+
+        if(backBoolean){
+            lin.setBackgroundColor(getResources().getColor(R.color.blackBack));
+
+        }else{
+            lin.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
+        }
+
+
 
 
         //Instantiating the Controller Class
@@ -101,8 +128,14 @@ public class MainActivity extends AppCompatActivity {
         //Find the list view
         listView = findViewById(R.id.idListItem);
         //Let create an instance of the ListView Adapter
-        ListViewAdapter listViewAdapter = new ListViewAdapter(this.getApplicationContext(), title, desc, images);
-        listView.setAdapter(listViewAdapter);
+        if(backBoolean){
+            ListViewAdapter listViewAdapter = new ListViewAdapter(this.getApplicationContext(), title, desc, imagesForDark);
+            listView.setAdapter(listViewAdapter);
+        }else{
+            ListViewAdapter listViewAdapter = new ListViewAdapter(this.getApplicationContext(), title, desc, images);
+            listView.setAdapter(listViewAdapter);
+        }
+
 
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
@@ -124,7 +157,9 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (position == 3) {
 //                            Toast.makeText(MainActivity.this, "Haha It's done by the one and only ATM a.k.a littlEGhost", Toast.LENGTH_SHORT).show();?
-                                showDialogMethod(1);
+//                                showDialogMethod(1);
+                            Intent intSetting = new Intent(MainActivity.this, SettingsAct.class);
+                            startActivity(intSetting);
                         } else if (position == 4){
                             //Developer AlertDialog
                            showDialogMethod(0);
@@ -172,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             alertD.setView(R.layout.show_saved_numbers);
         }
         else{
-            alertD.setView(R.layout.content_show_data);
+            alertD.setView(R.layout.activity_show_data);
         }
 
 
@@ -187,6 +222,11 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         IntentFilter intentFilter = new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
         registerReceiver(broadcastReceiver,intentFilter);
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Toast.makeText(this, "I am back", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onStop(){

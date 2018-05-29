@@ -4,12 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsMessage;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aleweny.prouction.MainActivity;
@@ -31,10 +34,37 @@ public class EnterPhoneClass extends AppCompatActivity implements View.OnClickLi
     BroadcastReceiver broadcastReceiver;
     Controller controller;
 
+    LinearLayout linearLayoutEnterPhone;
+    TextView texV;
+    SharedPreferences sharedPreferences;
+    boolean backBoolean;
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.enterphonelayout);
+
+        recoveryPhoneNumber = findViewById(R.id.recovery_phone_num);
+        securityCode = findViewById(R.id.idKeyword);
+        linearLayoutEnterPhone = findViewById(R.id.enterPhoneLayout);
+        texV = findViewById(R.id.explainOne);
+
+        sharedPreferences = getSharedPreferences("Settings",0);
+        backBoolean = sharedPreferences.getBoolean("switchOne",true);
+
+        if(backBoolean){
+            linearLayoutEnterPhone.setBackgroundColor(getResources().getColor(R.color.blackBack));
+            texV.setTextColor(getResources().getColor(R.color.whileBack));
+            recoveryPhoneNumber.setTextColor(getResources().getColor(R.color.whileBack));
+            securityCode.setTextColor(getResources().getColor(R.color.whileBack));
+
+        }else{
+            linearLayoutEnterPhone.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
+        }
+
+
+
+
 
 
         controller = new Controller();
@@ -51,8 +81,7 @@ public class EnterPhoneClass extends AppCompatActivity implements View.OnClickLi
         //Getting the backButton
         backButton = findViewById(R.id.back_button);
 //        phoneNumber = findViewById(R.id.idphoneNumber);
-        recoveryPhoneNumber = findViewById(R.id.recovery_phone_num);
-        securityCode = findViewById(R.id.idKeyword);
+
         saveButton = findViewById(R.id.idSaveButton);
 
         backButton.setOnClickListener(this);

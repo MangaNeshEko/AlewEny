@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settingsLinear"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.SettingsAct">
+    tools:context=".View.SettingsAct"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical">
 
 
-</RelativeLayout>
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/backGroundColour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark Background"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:paddingRight="25dp"
+        android:paddingEnd="25dp"
+        android:textSize="21sp"
+        />
+
+
+
+
+</LinearLayout>

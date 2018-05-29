@@ -1,7 +1,23 @@
 <resources>
     <string name="app_name">Alew Eny</string>
-    <string name="infoFindYourPhone">Here you will be able to send the secret code you have saved in your lost phone then wait for a message to bes sent back to this phone</string>
-    <string name="infoEnterPhone">Here you have the ability to recovery phone number your gone send with when your phone is lost</string>
-    <string name="title_activity_show_data">ShowData</string>
+    <string name="infoFindYourPhone">Here you will be able to send the secret code you have saved in your lost phone then wait for a message to be sent from the phone lost containg the location back to this phone</string>
+    <string name="መረጃየጠፋየስልክእይታ">እዚህ በስልክዎ ውስጥ ያስቀመጠዎትን ምስጢራዊ ኮድ ለመላክ ይችላሉ ከዚያም ከመልሶው ለመላክ የሚላከውን መልእክት ወደ እዚህ ስልክ በመላክ ያጣሩትን መልዕክት ይጠብቁ.</string>
+    <string name="infoEnterPhone">Here you can save the recovery phone number your are going to use when this phone is lost also you have to insert the secret code </string>
+    <string name="infoEnterPhoneView">እዚህ ስልክዎ በሚጠፋበት ጊዜ የሚጠቀሙበትን የመልሶ ማግኛ ስልክ ቁጥር እዚህ ማስቀመጥ ይችላሉ, እንዲሁም ሚስጥራዊውን ኮድ ማስገባት አለብዎት</string>
+    <string name="title_activity_show_data">Show Saved Number</string>
+    <string name="title_show_saved_number">የተቀመጠ ቁጥር አሳይ</string>
+    <string name="findphoneAmahric">የጠፋውን ስልክ አግኝ</string>
+    <string name="addnumberAmahric">ስልክ ቁጥር አስቀምጥ</string>
+    <string name="developerAmahric">ገንቢ</string>
+    <string name="settingsAmahric">ቅንብር</string>
     <string name="title_activity_settings">SettingsAct</string>
+    <string name="inputAmaharic">እባክዎ የመልሶ ማግኛ ስልክ ቁጥር ያስገቡ</string>
+    <string name="secret">እባክዎ የደህንነት ኮድ ያስገቡ</string>
+    <string name="saveAmahric">አስቀምጥ</string>
+    <string name="backAmharic">ተመለስ</string>
+    <string name="developername">አቤል ጥላሁን</string>
+    <string name="darkBackAmharic">ጥቁር ጀርባ</string>
+    <string name="languageAmharic">አማርኛ</string>
+    <string name="changeLanguageAmaharic">ቋንቋ ለውጥ</string>
+    <string name="serachAmharic">ፍለጋ</string>
 </resources>

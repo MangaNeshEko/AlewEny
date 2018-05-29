@@ -4,12 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aleweny.prouction.MainActivity;
@@ -24,16 +27,42 @@ public class FindPhone extends AppCompatActivity implements View.OnClickListener
     Button searchButton;
     Controller controller;
     BroadcastReceiver broadcastReceiver;
+
+    LinearLayout linearLayoutFindPhone;
+
+    SharedPreferences sharedPreferences;
+    boolean backBoolean;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.findphonelayout);
 
+        linearLayoutFindPhone = findViewById(R.id.findphoneLayout);
+        TextView txt = findViewById(R.id.explainTow);
+        phoneNumber_validator = findViewById(R.id.phoneNumber_check);
+        security = findViewById(R.id.keyword_check);
+
+        sharedPreferences = getSharedPreferences("Settings",0);
+        backBoolean = sharedPreferences.getBoolean("switchOne",true);
+
+        if(backBoolean){
+            linearLayoutFindPhone.setBackgroundColor(getResources().getColor(R.color.blackBack));
+            txt.setTextColor(getResources().getColor(R.color.whileBack));
+            phoneNumber_validator.setTextColor(getResources().getColor(R.color.whileBack));
+            security.setTextColor(getResources().getColor(R.color.whileBack));
+
+
+        }else{
+            linearLayoutFindPhone.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
+        }
+
+
+
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(this);
 
-        phoneNumber_validator = findViewById(R.id.phoneNumber_check);
-        security = findViewById(R.id.keyword_check);
+
 
         searchButton = findViewById(R.id.searchPhone);
         searchButton.setOnClickListener(this);

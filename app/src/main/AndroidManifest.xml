@@ -36,7 +36,7 @@
         <activity
             android:name=".View.SettingsAct"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
+            />
 
         <receiver android:name=".controller.SimCardChangeReciver">
             <intent-filter>

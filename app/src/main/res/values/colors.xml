@@ -12,4 +12,6 @@
     <color name="testcolorblue">#152b38</color>
     <color name="pink">#fe104d</color>
     <color name="blueGreen">#303F9F</color>
+    <color name="blackBack">#000</color>
+    <color name="whileBack">#fff</color>
 </resources>

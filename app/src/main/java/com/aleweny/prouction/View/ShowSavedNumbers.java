@@ -2,11 +2,13 @@ package com.aleweny.prouction.View;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +23,33 @@ public class ShowSavedNumbers extends AppCompatActivity implements View.OnClickL
     TextView textView;
     ListViewAdapterShowData listViewAdapterShowData;
 
+    LinearLayout linearLayoutShowSaved;
+    TextView row;
+    TextView phone;
+    TextView seq;
+    boolean switcher;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_saved_numbers);
+
+        linearLayoutShowSaved = findViewById(R.id.savedNumberLayout);
+        row = findViewById(R.id.rowFind);
+        phone = findViewById(R.id.phoneFind);
+        seq = findViewById(R.id.seqFind);
+
+        sharedPreferences = getSharedPreferences("Settings",0);
+        switcher = sharedPreferences.getBoolean("switchOne", false);
+        if(switcher){
+            linearLayoutShowSaved.setBackgroundColor(getResources().getColor(R.color.blackBack));
+            row.setTextColor(getResources().getColor(R.color.whileBack));
+            phone.setTextColor(getResources().getColor(R.color.whileBack));
+            seq.setTextColor(getResources().getColor(R.color.whileBack));
+        }
+
+
+
 
 //        btnShowData = findViewById(R.id.shwo);
 //        btnShowData.setOnClickListener(this);
