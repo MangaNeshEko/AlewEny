@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/englishID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English"
+        android:textSize="21sp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blackBack"
+        />
+    <TextView
+        android:id="@+id/amahric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/languageAmharic"
+        android:textSize="21sp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blackBack"
+        />
+    <TextView
+        android:id="@+id/afanOromo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afan Ormomo"
+        android:textSize="21sp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blackBack"
+        />
+    <TextView
+        android:id="@+id/tigerega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tigerga"
+        android:textSize="21sp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blackBack"
+        />
+</LinearLayout>

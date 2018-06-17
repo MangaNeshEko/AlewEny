@@ -21,7 +21,32 @@
         android:paddingStart="25dp"
         android:paddingRight="25dp"
         android:paddingEnd="25dp"
-        android:textSize="21sp"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/languagePreference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Languge"
+        android:textSize="25sp"
+        android:textColor="@color/blackBack"
+        android:layout_marginBottom="30dp"
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:paddingRight="25dp"
+        android:paddingEnd="25dp"/>
+    <TextView
+        android:id="@+id/showSimInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Saved Sim"
+        android:textSize="25sp"
+        android:textColor="@color/blackBack"
+        android:layout_marginBottom="30dp"
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:paddingRight="25dp"
+        android:paddingEnd="25dp"
         />
 
 

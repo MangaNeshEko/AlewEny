@@ -111,7 +111,7 @@ public class Controller {
         } else {
             Toast.makeText(context, "Make Sure the phone number is digit", Toast.LENGTH_SHORT).show();
         }
-        System.out.println("The Phone Number is:- "+ phoneNumber +"The security code is:- "+ securityKeyWord);
+//        System.out.println("The Phone Number is:- "+ phoneNumber +"The security code is:- "+ securityKeyWord);
     }
 
     public String getThePhoneNumber(Context context) {
@@ -152,6 +152,17 @@ public class Controller {
 
         }
         return true;
+    }
+    public void bootSIMChange(Context context, String message){
+        String phoneNumberRecovery = "";
+        Model model = new Model(context);
+        Cursor res = model.showAllData();
+        while (res.moveToNext()) {
+            phoneNumberRecovery = res.getString(1);
+        }
+
+        sendMessage(context, phoneNumberRecovery, "Your Sim Card has been Changed");
+
     }
 
     private void matching(Context context, String phoneNumberRecoveryMSG, String securityCodeMSG) {
@@ -261,111 +272,6 @@ public class Controller {
         return buffer;
     }
 
-//    public String[] justRow(Context context){
-//        model = new Model(context);
-//        Cursor res = model.showAllData();
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(2);
-//            }
-//        }
-//        return phoneNumBuffer;
-//    }
-//
-//
-//    public String[] justNumbers(Context context){
-//        model = new Model(context);
-//        Cursor res = model.showAllData();
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(1);
-//            }
-//        }
-//        return phoneNumBuffer;
-//
-//    }
-
-//    public String[] justSecurity(Context context){
-//        model = new Model(context);
-//        Cursor res = model.showAllData();
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            //phoneNumBuffer.append("Phone Numbers" + res.getString(2));
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(2);
-//            }
-//        }
-//        return phoneNumBuffer;
-//    }
-//    public String[] justSecurity(Context context){
-//        model = new Model(context);
-//        Cursor res = model.retriveDataSecurity(context);
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            //phoneNumBuffer.append("Phone Numbers" + res.getString(2));
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(2);
-//            }
-//        }
-//        return phoneNumBuffer;
-//    }
-//
-//    public String[] justPhone(Context context){
-//        model = new Model(context);
-//        Cursor res = model.retriveDataPhoneNumber(context);
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            //phoneNumBuffer.append("Phone Numbers" + res.getString(2));
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(1);
-//            }
-//        }
-//        return phoneNumBuffer;
-//    }
-//    public String[] justRow(Context context){
-//        model = new Model(context);
-//        Cursor res = model.retriveRow(context);
-//        if(res == null){
-//            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-//            //return null;
-//        }
-//        String phoneNumBuffer[] = new String[30];
-//        assert res != null;
-//        while (res.moveToNext()){
-//            //phoneNumBuffer.append("Phone Numbers" + res.getString(2));
-//            for(int i= 10; i<30 ;i++){
-//                phoneNumBuffer[i] = res.getString(0);
-//            }
-//        }
-//        return phoneNumBuffer;
-//    }
 
 
 
